@@ -1,0 +1,142 @@
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    animation: blurred 1s linear 1 both;
+}
+
+
+.intro {
+    background-image: url(resources/tv.png), url(resources/intro.png);
+    background-origin: padding-box fixed, border-box;
+    box-sizing: content-box;
+    background-size: contain, auto 70%;
+    object-fit: cover;
+    background-position: center, 12px 0;
+    position:absolute;
+    margin: 0 auto;
+}
+
+#television.level-1 {
+    grid-template-rows: auto;
+    height: 100%;
+    width: 100%;
+    background-image: url(resources/tv.png), url(resources/stage1.png);
+    background-origin:padding-box fixed, content-box;
+    overflow: hidden;
+    display: block;
+    background-size: contain, auto 100%;
+    background-repeat: no-repeat, repeat-x;
+    background-clip:padding-box, content-box;
+    padding-right: 75px;
+    object-fit: cover;
+    animation: level-1 20s linear 1 forwards;
+}
+
+.static {
+    z-index: 2;
+    animation:static 2s steps(2,end) infinite;
+}
+
+.move-cartridge {
+    animation: move-cartridge 2s linear 1 both; 
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 
+        400px 
+        300px 
+        100px;
+    grid-auto-flow: row;
+}
+
+#television {
+    background-image: url(resources/tv.png), linear-gradient(90deg, black 50px, blue 50px, blue 100px, red 100px, red 150px, purple 150px, purple 200px, lime 200px, lime 250px, turquoise 250px, turquoise 300px, yellow 300px, yellow 350px);
+    position: relative;
+    background-origin: padding-box, content-box;
+    padding: 35px;
+    height: 350px;
+    width: 500px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    /*overflow: hidden;*/
+}
+
+#nes-console {
+    background-image: url(resources/nes.png);
+    position: relative;
+    height: 200px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-size: contain;
+}
+
+#nes-cartridge {
+    background-image: url(resources/contra-cartridge.png);
+    position: relative;
+    height: 100px;
+    width: 100px;
+    left: 100px;
+    bottom: 0px;
+    background-size: contain;
+    transform: rotateX(45deg) rotateZ(30deg);
+}
+
+@keyframes blurred {
+    from {
+        filter: blur(4px);
+        opacity: 0;
+        perspective: 800px;
+        perspective-origin: bottom left;
+        transform:rotateY(90deg);
+    }
+    to {
+        filter:blur(0);
+        opacity: 1;
+        perspective: 0px;
+        perspective-origin: bottom right;
+        transform:rotateY(0deg);
+    }
+}
+
+@keyframes static {
+    from {
+        background-image: url(resources/tv.png), linear-gradient(90deg, black 50px, blue 50px, blue 100px, red 100px, red 150px, purple 150px, purple 200px, lime 200px, lime 250px, turquoise 250px, turquoise 300px, yellow 300px, yellow 350px);
+        background-origin: padding-box, content-box;
+    }
+    to {
+        background-image: url(resources/tv.png), linear-gradient(-90deg, black 50px, blue 50px, blue 100px, red 100px, red 150px, purple 150px, purple 200px, lime 200px, lime 250px, turquoise 250px, turquoise 300px, yellow 300px, yellow 350px);
+        background-origin: padding-box, content-box(rotateY(180deg));
+        padding-right: 210px;
+        z-index: 2;
+    }
+}
+
+@keyframes level-1 {
+    from {
+        background-position-x: 0px, 0px;
+    }
+    to {
+        background-position-x: 0px, -4175px;
+    }
+}
+
+@keyframes move-cartridge {
+    0% {
+        perspective: none;
+        transform: translate(0px, 0px) rotateX(45deg) rotateZ(30deg);
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        perspective: 6rem;
+        transform: translate(120px, -200px) rotateX(45deg) rotateZ(30deg);
+        opacity: 0;
+    }
+}
