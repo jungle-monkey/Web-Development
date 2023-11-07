@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mara's Boards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assignment2: Client-side Application">
+    <meta name="author" content="Mara Bonet Dall'Arche">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js" async></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <div id="header">
+        <form id="createBoard">
+            <!--Form is to enter data and send to server-->
+            <label for="enterBoardname">Create a new board:</label><br>
+            <input id="enterBoardname" type="text" value="Create new board"><br>
+            <input type="button" value="Create" onclick="createNewBoard()">
+            <p>Enter a board name and press the 'Enter' key.</p>
+        </form>
+        <button type="button" onclick="getAllBoards()">Get all boards</button><br><br>
+    </div>
+    <div id="mainContent">
+        <!--Board, which we get from the back-end-->
+    </div>
+
+
+</body>
+
+</html>
