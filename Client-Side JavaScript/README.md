@@ -1,1 +1,1 @@
-
+Implementation of a web application that handles planning boards, similar to the boards you can see in applications like Trello. Communication is done extensively with an existing server-side application that manages these boards. Different boards can have different tasks.
