@@ -1,0 +1,27 @@
+{
+  "name": "veffboardbackend",
+  "version": "0.2.1",
+  "description": "T-213-VEFF node.js RESTful backend/server for a task boards application.",
+  "main": "index.js",
+  "private": "true", 
+  "scripts" : {
+    "test"  : "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "keywords": [
+    "boards",
+    "REST",
+    "Veff213"
+  ],
+  "author": "mara20, solmundur20",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": ">=8.x"
+  }
+}
+
